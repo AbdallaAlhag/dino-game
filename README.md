@@ -6,11 +6,9 @@ Google chrome dino game made with pixijs and howler js, bundled with vite, using
 - https://waelyasmina.net/articles/pixi-js-tutorial-for-complete-beginners/
 
 PixiJs guide page was also a nice reference alongside their api reference
-- https://pixijs.com/8.x/guides/components/renderers
+- https://pixijs.com/8.x/guides/getting-started/intro
 - https://pixijs.download/release/docs/modules.html
 ## Deployment
-
-To deploy this project run
 
 Uploaded to github pages with gh-page branch using gh-pages library.
 
