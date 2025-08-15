@@ -40,7 +40,7 @@ import { Howl } from "howler";
       idle: ["idle1", "idle2", "idle3"],
     },
     meta: {
-      image: "images/spritesheet.png",
+      image: "/images/spritesheet.png",
       size: { w: 192, h: 65 },
       scale: 1,
     },
