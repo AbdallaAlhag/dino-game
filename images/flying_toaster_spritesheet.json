@@ -207,7 +207,7 @@
   },
   "meta": {
     "version": "1.0",
-    "image": "/images/flyingToaster.png",
+    "image": "/flyingToaster.png",
     "format": "RGBA8888",
     "size": {
       "w": 1536,
@@ -216,4 +216,3 @@
     "scale": "1"
   }
 }
-
