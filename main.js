@@ -20,9 +20,10 @@ import { Howl } from "howler";
     antialias: true,
   });
 
+  const BASE_URL = import.meta.env.BASE_URL;
   app.canvas.style.position = "absolute";
   document.body.appendChild(app.canvas);
-
+  console.log("does this work: ", BASE_URL);
   const atlasData = {
     frames: {
       walk1: { frame: { x: 0, y: 0, w: 32, h: 32 } },
@@ -56,9 +57,9 @@ import { Howl } from "howler";
   // const chickenTexture = await Assets.load("images/chickenWalk.png");
   // const sprite = Sprite.from(chickenTexture);
   // app.stage.addChild(sprite);
-  const chickenTexture = await Assets.load(atlasData.meta.image);
+  const chickenTexture = await Assets.load(BASE_URL + atlasData.meta.image);
   const chickenSpritesheet = new Spritesheet(chickenTexture, atlasData);
-  await chickenSpritesheet.parse();
+  await chickenSpritesheet.parse(chickenSpritesheet);
 
   const chickenSprite = new AnimatedSprite(chickenSpritesheet.animations.walk);
   // Animation Type	Suggested Speed (animationSpeed)	FPS Equivalent
@@ -74,7 +75,7 @@ import { Howl } from "howler";
 
   // Tiling Sprites
   // Cloud Tiling Sprite
-  const cloudTexture = await Assets.load("images/CloudTileset.png");
+  const cloudTexture = await Assets.load(BASE_URL + "images/CloudTileset.png");
   const cloudSprite = new TilingSprite({
     texture: cloudTexture,
     width: app.screen.width,
@@ -86,7 +87,7 @@ import { Howl } from "howler";
   app.ticker.add(() => (cloudSprite.tilePosition.x -= 1));
 
   // Ground Tiling Sprite
-  const groundTexture = await Assets.load("images/ground.png");
+  const groundTexture = await Assets.load(BASE_URL + "images/ground.png");
   const groundSprite = new TilingSprite({
     texture: groundTexture,
     width: app.screen.width,
@@ -100,7 +101,7 @@ import { Howl } from "howler";
 
   // SoundTrack
   const backgroundMusic = new Howl({
-    src: ["/audio/lavaChickenLoop.mp3"],
+    src: [BASE_URL + "/audio/lavaChickenLoop.mp3"],
     autoplay: localStorageMute,
     loop: true,
     volume: 0.05,
@@ -110,7 +111,7 @@ import { Howl } from "howler";
 
   await Assets.load({
     alias: "PixelFont",
-    src: "fonts/TypefaceMarioWorldPixelOutlineRegular-MVzKp.ttf",
+    src: BASE_URL + "fonts/TypefaceMarioWorldPixelOutlineRegular-MVzKp.ttf",
   });
 
   await document.fonts.load("16px PixelFont");
@@ -168,7 +169,7 @@ import { Howl } from "howler";
   // add additional enemies, ex: flying enemies -> done
   // simple menu?
 
-  const fireTexture = await Assets.load("/images/fireStove3.png");
+  const fireTexture = await Assets.load(BASE_URL + "/images/fireStove3.png");
   const fireSprite = Sprite.from(fireTexture);
   app.stage.addChild(fireSprite);
   fireSprite.scale.set(0.5, 0.5);
@@ -206,7 +207,9 @@ import { Howl } from "howler";
   });
 
   // flying enemy sprite:
-  const flyingEnemySheet = await Assets.load("flying_toaster_spritesheet.json");
+  const flyingEnemySheet = await Assets.load(
+    BASE_URL + "/images/flying_toaster_spritesheet.json",
+  );
   const flyingEnemyAnimation = new AnimatedSprite(
     flyingEnemySheet.animations["toaster_fly"],
   );
@@ -236,7 +239,7 @@ import { Howl } from "howler";
     );
   }
 
-  const buttonTexture = await Assets.load("/images/resetButton.png");
+  const buttonTexture = await Assets.load(BASE_URL + "/images/resetButton.png");
 
   // Create reset button
   const button = Sprite.from(buttonTexture);
@@ -323,8 +326,8 @@ import { Howl } from "howler";
   }
 
   // Volume Button
-  const muteAsset = await Assets.load("images/mute.png");
-  const unmuteAsset = await Assets.load("images/unmute.png");
+  const muteAsset = await Assets.load(BASE_URL + "images/mute.png");
+  const unmuteAsset = await Assets.load(BASE_URL + "images/unmute.png");
   const muteSprite = Sprite.from(muteAsset);
   const unmuteSprite = Sprite.from(unmuteAsset);
   setUpMuteButton(muteSprite);
