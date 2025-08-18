@@ -1,7 +1,7 @@
 
 
 # Dino Game
-![game screenshot](./public/images/dino-game-screenshot.jpg "Dino Game Screenshot")
+![game screenshot](./public/images/dino-game-screenshot.png "Dino Game Screenshot")
 
 Google chrome dino game made with pixijs and howler js, bundled with vite, using assets from itch.io. I made this to play around with pixijs after reading this tutorial page
 
